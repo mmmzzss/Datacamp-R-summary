@@ -57,3 +57,18 @@ OUTPUT:
 Female   Male 
      2      3 
 
+# By setting the argument ordered to TRUE in the function factor(), you indicate that the factor is ordered. 
+# With the argument levels you give the values of the factor in the correct order.
+# summary数每个group一共几个，ordered证明这个是有顺序的
+
+
+# 索引： da2 <- factor_survey_vector[2]
+
+
+
+
+
+
+
+
+
