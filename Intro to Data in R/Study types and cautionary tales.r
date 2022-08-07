@@ -37,3 +37,5 @@ OUTPUT:
 2 Male   Rejected  1493
 3 Female Admitted   557
 4 Female Rejected  1278
+
+
