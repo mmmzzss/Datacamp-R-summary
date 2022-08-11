@@ -81,3 +81,16 @@ OUTPUT:
       140        20       240 
 
 
+
+
+# 移除vector中的元素
+#define vector
+x <- c('Mavs', 'Nets', 'Hawks', 'Bucks', 'Spurs', 'Suns')
+
+#remove 'Mavs' and 'Spurs' from vector
+x <- x[! x %in% c('Mavs', 'Spurs')]
+
+#view updated vector
+x
+
+[1] "Nets"  "Hawks" "Bucks" "Suns" 
