@@ -45,4 +45,8 @@ pools <- read.csv('swimming_pools.csv')
 19             5 Panitya Street, Stones Corner -27.49769  153.0487
 20                     81 School Road, Yeronga -27.52053  153.0185
 
+With stringsAsFactors, you can tell R whether it should convert strings in the flat file to factors.
 
+For all importing functions in the utils package, this argument is TRUE, which means that you import strings as factors. 
+This only makes sense if the strings you import represent categorical variables in R. 
+If you set stringsAsFactors to FALSE, the data frame columns corresponding to strings in your text file will be character.
