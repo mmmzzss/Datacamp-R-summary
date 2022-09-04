@@ -50,3 +50,28 @@ With stringsAsFactors, you can tell R whether it should convert strings in the f
 For all importing functions in the utils package, this argument is TRUE, which means that you import strings as factors. 
 This only makes sense if the strings you import represent categorical variables in R. 
 If you set stringsAsFactors to FALSE, the data frame columns corresponding to strings in your text file will be character.
+
+pools <- read.csv('swimming_pools.csv',stringsAsFactors = FALSE)
+str(pools)
+  
+  data.frame':	20 obs. of  4 variables:
+ $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
+ $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
+ $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
+ $ Longitude: num  153 153 153 153 153 ...
+
+
+
+
+
+
+
+# Import txt file
+# Import hotdogs.txt: hotdogs
+hotdogs <- read.delim("hotdogs.txt",
+                        header = FALSE,
+                        sep = "\t",
+                        stringsAsFactors = FALSE)
+
+# Summarize hotdogs
+summary(hotdogs)
