@@ -129,6 +129,8 @@ lily <- hotdogs[which.min(hotdogs$calories), ]
 hotdogs2 <- read.delim("hotdogs.txt", header = FALSE, 
                        col.names = c("type", "calories", "sodium"),
                        colClasses = c("factor","NULL","numeric"))
+If a column is set to "NULL" in the colClasses vector, this column will be skipped and will not be loaded into the data frame.
+
 
 BEFORE:
 'data.frame':	54 obs. of  3 variables:
