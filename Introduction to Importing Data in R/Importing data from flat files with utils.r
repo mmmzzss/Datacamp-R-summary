@@ -1,4 +1,4 @@
-# Import csv file
+# Import csv file 
 pools <- read.csv('swimming_pools.csv')
 
 
@@ -54,12 +54,11 @@ If you set stringsAsFactors to FALSE, the data frame columns corresponding to st
 pools <- read.csv('swimming_pools.csv',stringsAsFactors = FALSE)
 str(pools)
   
-  data.frame':	20 obs. of  4 variables:
- $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
- $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
- $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
- $ Longitude: num  153 153 153 153 153 ...
-
+ # data.frame':	20 obs. of  4 variables:
+ # $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
+ # $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
+ # $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
+ # $ Longitude: num  153 153 153 153 153 ...
 
 
 
@@ -68,6 +67,7 @@ str(pools)
 
 # Import txt file
 # Import hotdogs.txt: hotdogs
+# By default, head = TRUE, sep = '\t'
 hotdogs <- read.delim("hotdogs.txt",
                         header = FALSE,
                         sep = "\t",
@@ -75,3 +75,72 @@ hotdogs <- read.delim("hotdogs.txt",
 
 # Summarize hotdogs
 summary(hotdogs)
+
+Result:
+      V1                  V2              V3       
+ Length:54          Min.   : 86.0   Min.   :144.0  
+ Class :character   1st Qu.:132.0   1st Qu.:362.5  
+ Mode  :character   Median :145.0   Median :405.0  
+                    Mean   :145.4   Mean   :424.8  
+                    3rd Qu.:172.8   3rd Qu.:503.5  
+                    Max.   :195.0   Max.   :645.0 
+
+
+
+
+
+
+
+
+# Import table
+# the file is in the data folder inside your current working directory
+By default, head = TRUE
+
+path <- file.path("data", "hotdogs.txt")
+
+
+# Import the hotdogs.txt file: hotdogs
+hotdogs <- read.table(path, 
+                      sep = "\t", 
+                      col.names = c("type", "calories", "sodium"))
+
+# Call head() on hotdogs
+head(hotdogs)
+
+
+result:
+type calories sodium
+1 Beef      186    495
+2 Beef      181    477
+3 Beef      176    425
+4 Beef      149    322
+5 Beef      184    482
+6 Beef      190    587
+
+
+# Select the hot dog with the least calories: lily
+lily <- hotdogs[which.min(hotdogs$calories), ]
+
+ type calories sodium
+50 Poultry       86    358
+
+
+# Edit the colClasses argument to import the data correctly: hotdogs2
+hotdogs2 <- read.delim("hotdogs.txt", header = FALSE, 
+                       col.names = c("type", "calories", "sodium"),
+                       colClasses = c("factor","NULL","numeric"))
+
+BEFORE:
+'data.frame':	54 obs. of  3 variables:
+ $ type    : chr  "Beef" "Beef" "Beef" "Beef" ...
+ $ calories: int  186 181 176 149 184 190 158 139 175 148 ...
+ $ sodium  : int  495 477 425 322 482 587 370 322 479 375 ...
+
+
+AFTER:
+'data.frame':	54 obs. of  2 variables:
+ $ type  : Factor w/ 3 levels "Beef","Meat",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ sodium: num  495 477 425 322 482 587 370 322 479 375 ...
+
+
+
