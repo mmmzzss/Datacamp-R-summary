@@ -120,3 +120,14 @@ area temp size storage method texture flavor moistness
   4:    1    1    1       1      4     2.1    2.9       2.4
   5:    1    1    1       1      5     1.9    2.8       2.2
  ---        
+
+
+DROP n SELECT
+fread("path/to/file.txt", drop = 2:4)
+fread("path/to/file.txt", select = c(1, 5))
+fread("path/to/file.txt", drop = c("b", "c", "d"))
+fread("path/to/file.txt", select = c("a", "e"))
+
+
+The class of the result of fread() is both data.table and data.frame. 
+read_csv() creates an object with three classes: tbl_df, tbl and data.frame.
